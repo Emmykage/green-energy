@@ -26,6 +26,7 @@ const navItems = [
   ["Sectors", "/sectors"],
   ["Projects", "/projects"],
   ["Leadership", "/leadership"],
+  ["Contact", "/contact"],
 ];
 
 const Header = () => {
