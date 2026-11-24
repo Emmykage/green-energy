@@ -455,7 +455,7 @@ function Projects() {
                 className="min-w-0 bg-white"
               >
                 <div
-                  className="relative h-[235px] bg-cover bg-center"
+                  className="relative h-60 bg-cover bg-center"
                   style={{
                     backgroundImage: `url(https://images.unsplash.com/${project.image}?auto=format&fit=crop&w=1100&q=80)`,
                   }}
