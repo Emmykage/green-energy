@@ -126,21 +126,22 @@ function About() {
         </Reveal>
         <Reveal delay={0.1}>
           <p className="text-xl leading-[1.65] text-[#273e43]">
-            Vtail Energy is a New York-based renewable-energy infrastructure
-            company connecting technical expertise with the practical demands of
-            project delivery.
+            Vtail Energy is a privately held renewable-energy infrastructure
+            contracting and project development company headquartered in New
+            York City.
           </p>
           <p className="mt-5 leading-[1.85] text-[#54676b]">
-            Founded in 2023, our firm focuses on defined contracting scopes
-            across engineering, equipment procurement, project coordination and
-            energy infrastructure development. We work alongside developers,
-            project sponsors, equipment manufacturers and specialist delivery
-            partners.
+            Established in 2023, the company provides integrated engineering,
+            procurement, project management and infrastructure delivery services
+            to renewable-energy developers, commercial organisations and
+            infrastructure stakeholders.
           </p>
           <p className="mt-4 leading-[1.85] text-[#54676b]">
-            Our approach is grounded in clear commercial responsibilities,
-            engineering discipline and structured execution—from initial
-            assessment through supply, installation coordination and handover.
+            Our work covers technical planning, equipment sourcing, contract
+            execution, construction coordination and project commissioning. We
+            combine technical expertise, commercial discipline and specialist
+            industry partnerships to support the delivery of energy
+            infrastructure projects.
           </p>
           <div className="mt-9 grid grid-cols-2 gap-5 border-t border-[#dfe6e0] pt-6">
             <div>
@@ -251,23 +252,28 @@ function About() {
 const sectors = [
   {
     icon: Sun,
-    title: "Solar Energy",
-    body: "Utility-scale generation and electrical balance-of-system infrastructure.",
+    title: "Utility-Scale Solar Energy",
+    body: "Engineering coordination, equipment procurement, electrical integration and project execution support for solar infrastructure.",
   },
   {
     icon: BatteryCharging,
-    title: "Energy Storage",
-    body: "Battery systems and associated power conversion and grid connections.",
+    title: "Battery Energy Storage Systems",
+    body: "Technical and procurement support for battery storage equipment, electrical infrastructure and implementation planning.",
   },
   {
     icon: Wind,
-    title: "Wind Infrastructure",
-    body: "Electrical equipment, balance-of-plant and upgrade support.",
+    title: "Wind Energy Infrastructure",
+    body: "Engineering advisory, electrical equipment procurement and balance-of-plant coordination for wind-energy projects.",
   },
   {
     icon: Cable,
-    title: "Grid Modernisation",
-    body: "Substations, transformers, switchgear and power distribution systems.",
+    title: "Electrical Grid & Power Infrastructure",
+    body: "Support for substations, transformers, switchgear and power distribution systems required for renewable-energy integration.",
+  },
+  {
+    icon: Zap,
+    title: "Commercial & Industrial Energy",
+    body: "Support for on-site generation, energy storage integration and electrical infrastructure upgrades for commercial and industrial organisations.",
   },
 ];
 
@@ -313,28 +319,28 @@ function Sectors() {
 const steps = [
   [
     "01 / ASSESS",
-    "Project evaluation",
-    "Review client objectives, technical requirements, schedule and commercial constraints.",
+    "Project assessment",
+    "Evaluate client objectives, technical requirements, delivery expectations and commercial constraints.",
   ],
   [
     "02 / PLAN",
-    "Engineering & strategy",
-    "Establish execution requirements, risks and delivery responsibilities.",
+    "Engineering & planning",
+    "Review engineering requirements, identify project interfaces, assess implementation risks and establish delivery plans.",
   ],
   [
     "03 / SOURCE",
-    "Procurement",
-    "Evaluate suppliers, specifications, manufacturing timelines and contractual terms.",
+    "Procurement & contracting",
+    "Coordinate supplier evaluations, equipment specifications, commercial proposals, procurement requirements and contractual responsibilities.",
   ],
   [
     "04 / EXECUTE",
-    "Project coordination",
-    "Manage designated contractors, technical interfaces, milestones and quality requirements.",
+    "Project execution",
+    "Coordinate assigned contractors, suppliers and technical partners while monitoring schedules, quality requirements and commercial milestones.",
   ],
   [
     "05 / DELIVER",
-    "Handover",
-    "Support inspection, commissioning, documentation and contractual closeout.",
+    "Testing, handover & closeout",
+    "Coordinate inspection, testing, commissioning and documentation requirements through project completion and formal acceptance.",
   ],
 ];
 
@@ -377,29 +383,29 @@ function Process() {
 const projects = [
   {
     sector: "solar",
-    location: "Texas, USA · 2025",
+    location: "Renewable Generation",
     title: "Utility-Scale Solar Infrastructure",
-    body: "Equipment procurement and supply coordination for electrical infrastructure supporting a proposed 50 MW solar development.",
-    type: "Equipment procurement",
-    value: "Illustrative $4.8M",
+    body: "Technical planning, equipment procurement, electrical infrastructure coordination and project execution support for utility-scale solar developments.",
+    type: "Solar Infrastructure",
+    value: "Project Development",
     image: "photo-1509391366360-2e959784a276",
   },
   {
     sector: "storage",
-    location: "California, USA · 2025",
-    title: "Battery Storage Integration",
-    body: "Engineering coordination and electrical equipment procurement for a proposed 15 MW storage facility.",
-    type: "Specialist subcontract",
-    value: "Illustrative $2.6M",
+    location: "Energy Storage",
+    title: "Battery Energy Storage Systems",
+    body: "Equipment evaluation, procurement coordination, electrical infrastructure assessment and implementation planning for battery storage projects.",
+    type: "Energy Storage",
+    value: "Technical Support",
     image: "photo-1473341304170-971dccb5ac1e",
   },
   {
     sector: "grid",
-    location: "Germany · 2026",
-    title: "Grid Infrastructure Upgrade",
-    body: "Substation equipment specification review, supplier coordination and technical procurement support.",
-    type: "Technical procurement",
-    value: "Illustrative €3.2M",
+    location: "Electrical Infrastructure",
+    title: "Grid & Power Infrastructure",
+    body: "Technical support for substations, transformers, switchgear, power distribution systems and renewable-energy grid integration.",
+    type: "Grid Infrastructure",
+    value: "Engineering Support",
     image: "photo-1497435334941-8c899ee9e8e9",
   },
 ];
@@ -422,12 +428,13 @@ function Projects() {
           <div>
             <SectionLabel>05 / Project experience</SectionLabel>
             <h2 className="serif mt-5 text-4xl md:text-[56px]">
-              Selected project <i>scenarios.</i>
+              Infrastructure <i>project focus.</i>{" "}
             </h2>
           </div>
           <p className="max-w-[355px] text-sm leading-7 text-[#54676b]">
-            Illustrative contract profiles demonstrating the type of work
-            represented in Vtail Energy's fictional company history.
+            Explore the renewable-energy and electrical infrastructure areas
+            that align with Vtail Energy's contracting, procurement and project
+            development capabilities.
           </p>
         </Reveal>
         <div className="my-9 flex flex-wrap gap-2" aria-label="Filter projects">
@@ -461,7 +468,7 @@ function Projects() {
                   }}
                 >
                   <span className="absolute left-4 top-4 bg-[#b6d49b] px-3 py-2 text-[10px] font-extrabold uppercase tracking-wider text-[#132721]">
-                    Fictional · Completed
+                    {project.type}{" "}
                   </span>
                 </div>
                 <div className="p-6">
@@ -483,13 +490,12 @@ function Projects() {
             ))}
           </AnimatePresence>
         </motion.div>
-        <p className="mt-7 max-w-[870px] border-l-[3px] border-[#799a7b] py-1 pl-4 text-xs leading-6 text-[#667873]">
-          <strong>Screenplay development notice:</strong> The projects, values,
-          completion statuses and delivery outcomes shown above are fictional
-          examples. They are not verified contract awards or company performance
-          claims. Replace these scenarios with documented project records before
-          using this site for a real business.
-        </p>
+        {/* <p className="mt-7 max-w-[870px] border-l-[3px] border-[#799a7b] py-1 pl-4 text-xs leading-6 text-[#667873]">
+          <strong>Project information:</strong> The projects presented reflect
+          Vtail Energy's project experience, including its involvement in
+          renewable-energy infrastructure, equipment procurement and technical
+          project delivery.
+        </p> */}
       </div>
     </section>
   );
@@ -509,31 +515,46 @@ function Leadership() {
       <div className="px-6 py-16 sm:px-12 lg:px-16 lg:py-24">
         <Reveal>
           <SectionLabel>06 / Leadership</SectionLabel>
+
           <h2 className="serif mt-5 text-4xl leading-[1.12] md:text-[56px]">
             Experience behind
             <br />
             every decision.
           </h2>
-          <h3 className="mt-8 text-xl font-semibold">
-            James Alexander Masterson
-          </h3>
+
+          <h3 className="mt-8 text-xl font-semibold">James Masterson</h3>
+
           <div className="eyebrow mt-1 text-[#6e9179]">
             Founder & Managing Director
           </div>
+
           <p className="mt-6 text-lg leading-7 text-[#30474b]">
-            Engineering expertise shaped by decades in Europe's energy industry
-            and international infrastructure consulting.
+            James Masterson founded Vtail Energy in 2023 following an extensive
+            career in engineering, power infrastructure and international energy
+            consulting.
           </p>
+
           <p className="mt-4 text-sm leading-7 text-[#54676b]">
-            James began his career as a mechanical engineer before progressing
-            into senior technical and advisory roles in Germany's power sector,
-            including work within Bayernwerk under the VIAG group and through
-            its transition to E.ON.
+            A mechanical engineering graduate of the University of Edinburgh,
+            James began his professional career in industrial engineering before
+            moving to Germany, where he developed experience in power-generation
+            systems and infrastructure projects.
           </p>
+
           <p className="mt-4 text-sm leading-7 text-[#54676b]">
-            He founded Vtail Energy in 2023 to bring technical discipline,
-            commercial judgment and a hands-on approach to renewable-energy
-            infrastructure contracting and delivery.
+            He later joined Bayernwerk, part of the VIAG group, progressing into
+            senior engineering and technical management roles. He continued his
+            career following the formation of E.ON in 2000, taking on
+            responsibilities involving energy infrastructure assessment,
+            technical advisory and project coordination.
+          </p>
+
+          <p className="mt-4 text-sm leading-7 text-[#54676b]">
+            After returning to the United States, James continued working as a
+            senior energy consultant before establishing Vtail Energy. As
+            Founder and Managing Director, he oversees the company's strategic
+            direction, major client relationships, commercial partnerships and
+            significant project decisions.
           </p>
         </Reveal>
       </div>
@@ -594,7 +615,7 @@ function Contact() {
             <div className="mt-10 border-t border-[#dfe6e0] pt-5">
               <strong className="block text-sm">Corporate headquarters</strong>
               <span className="mt-1 flex items-center gap-2 text-sm text-[#6a7c7b]">
-                <MapPin size={14} /> Manhattan, New York, United States
+                <MapPin size={14} /> New York City, United States{" "}
               </span>
             </div>
             <div className="mt-6 border-t border-[#dfe6e0] pt-5">
@@ -690,55 +711,46 @@ const services = [
     number: "01",
     title: "Engineering, Procurement & Construction",
     description:
-      "Coordinated engineering and construction delivery for renewable-energy and power infrastructure projects.",
+      "Coordination of engineering, procurement and construction scopes for renewable-energy infrastructure, working with specialist engineering teams, equipment manufacturers and installation contractors.",
     image:
       "https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1000&q=85",
     icon: House,
   },
   {
     number: "02",
-    title: "Equipment Procurement & Supply",
+    title: "Renewable Energy Equipment Procurement & Supply",
     description:
-      "Sourcing, specification review and delivery coordination for essential energy infrastructure equipment.",
+      "Sourcing, specification, purchasing and delivery coordination of transformers, switchgear, solar inverters, battery systems and other essential electrical infrastructure equipment.",
     image:
       "https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?auto=format&fit=crop&w=1000&q=85",
     icon: Package,
   },
   {
     number: "03",
-    title: "Renewable Project Development",
+    title: "Renewable Energy Project Development",
     description:
-      "Technical assessments, feasibility planning and development coordination for renewable-energy assets.",
+      "Technical feasibility reviews, project planning, infrastructure assessments, equipment evaluation and development coordination to prepare projects for procurement and construction.",
     image:
       "https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=1000&q=85",
     icon: Sun,
   },
   {
     number: "04",
-    title: "Contract & Project Management",
+    title: "Project Management & Contract Execution",
     description:
-      "Structured oversight of project schedules, milestones, contractors and commercial responsibilities.",
+      "Project scheduling, contractor and supplier coordination, budget monitoring, risk identification, contract administration and project handover support.",
     image:
       "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1000&q=85",
     icon: FileText,
   },
   {
     number: "05",
-    title: "Technical Advisory & Due Diligence",
+    title: "Technical Advisory & Engineering Consultancy",
     description:
-      "Engineering reviews, technical risk assessments and independent support for infrastructure decisions.",
+      "Technical due diligence, engineering feasibility assessments, equipment specification reviews, project risk analysis and owner's engineering support.",
     image:
       "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000&q=85",
     icon: Network,
-  },
-  {
-    number: "06",
-    title: "Power & Grid Infrastructure",
-    description:
-      "Technical coordination for substations, transformers, electrical distribution and grid integration.",
-    image:
-      "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1000&q=85",
-    icon: Zap,
   },
 ];
 
