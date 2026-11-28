@@ -11,87 +11,7 @@ import {
 } from "lucide-react";
 import React from "react";
 import { Link } from "react-router-dom";
-
-const projects = [
-  {
-    number: "01",
-    category: "Renewable Energy",
-    title: "Utility-Scale Solar Development",
-    location: "Illustrative Project",
-    description:
-      "An illustrative development scenario exploring the planning and coordination of a large-scale solar energy project designed to contribute to cleaner electricity generation.",
-    icon: Sun,
-    status: "Illustrative Scenario",
-    image:
-      "https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1200&q=85",
-    tags: ["Solar Energy", "Project Development", "Renewables"],
-  },
-  {
-    number: "02",
-    category: "Power Infrastructure",
-    title: "Integrated Power Infrastructure",
-    location: "Illustrative Project",
-    description:
-      "An illustrative infrastructure scenario focused on power system planning, grid connectivity and the coordination of reliable energy delivery.",
-    icon: Zap,
-    status: "Illustrative Scenario",
-    image:
-      "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1200&q=85",
-    tags: ["Power Systems", "Infrastructure", "Grid"],
-  },
-  {
-    number: "03",
-    category: "Energy Storage",
-    title: "Battery Energy Storage Development",
-    location: "Illustrative Project",
-    description:
-      "An illustrative energy storage initiative examining how battery systems can support renewable integration, flexibility and energy reliability.",
-    icon: BatteryCharging,
-    status: "Illustrative Scenario",
-    image:
-      "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=1200&q=85",
-    tags: ["Battery Storage", "Energy Systems", "Innovation"],
-  },
-  {
-    number: "04",
-    category: "Industrial Energy",
-    title: "Industrial Energy Optimization",
-    location: "Illustrative Project",
-    description:
-      "An illustrative industrial energy scenario exploring infrastructure improvements, operational efficiency and dependable power solutions.",
-    icon: Factory,
-    status: "Illustrative Scenario",
-    image:
-      "https://images.unsplash.com/photo-1567789884554-0b844b597180?auto=format&fit=crop&w=1200&q=85",
-    tags: ["Industrial Energy", "Efficiency", "Infrastructure"],
-  },
-  {
-    number: "05",
-    category: "Infrastructure Advisory",
-    title: "Strategic Energy Infrastructure Planning",
-    location: "Illustrative Project",
-    description:
-      "An illustrative advisory scenario examining project feasibility, infrastructure requirements and strategic development opportunities.",
-    icon: Network,
-    status: "Illustrative Scenario",
-    image:
-      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=85",
-    tags: ["Advisory", "Planning", "Development"],
-  },
-  {
-    number: "06",
-    category: "Energy Transition",
-    title: "Low-Carbon Energy Transition",
-    location: "Illustrative Project",
-    description:
-      "An illustrative transition scenario exploring opportunities to integrate cleaner energy solutions into existing infrastructure.",
-    icon: Leaf,
-    status: "Illustrative Scenario",
-    image:
-      "https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?auto=format&fit=crop&w=1200&q=85",
-    tags: ["Energy Transition", "Sustainability", "Renewables"],
-  },
-];
+import { projects } from "../../assets/data/project";
 
 const categories = [
   "All Projects",
@@ -218,7 +138,7 @@ export default function Projects() {
             className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
           >
             {filteredProjects.map((project, index) => {
-              const Icon = project.icon;
+              const Icon = project.sector === "solar" ? Sun : BatteryCharging;
 
               return (
                 <motion.article
@@ -229,6 +149,7 @@ export default function Projects() {
                   transition={{ duration: 0.45, delay: index * 0.05 }}
                   className="group border border-[#e5e8e1] bg-[#f5f5f0]"
                 >
+                  {/* PROJECT IMAGE */}
                   <div className="relative h-64 overflow-hidden">
                     <img
                       src={project.image}
@@ -248,7 +169,8 @@ export default function Projects() {
                   </div>
 
                   <div className="p-7">
-                    <div className="flex justify-between items-center mb-5">
+                    {/* PROJECT HEADING */}
+                    <div className="flex justify-between items-center mb-5 gap-3">
                       <span className="text-xs text-[#71866b]">
                         PROJECT {project.number}
                       </span>
@@ -262,25 +184,163 @@ export default function Projects() {
                       {project.title}
                     </h3>
 
-                    <p className="text-[#65727a] text-sm leading-relaxed mb-6">
+                    <p className="text-[#65727a] text-sm leading-relaxed mb-7">
                       {project.description}
                     </p>
 
-                    <div className="flex flex-wrap gap-2 mb-6">
-                      {project.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="text-xs border border-[#dce1d7] px-3 py-2 text-[#65727a]"
-                        >
-                          {tag}
-                        </span>
-                      ))}
+                    {/* PROJECT INFORMATION */}
+                    <div className="border-y border-[#e0e5dc] py-6 mb-7">
+                      <h4 className="text-xs uppercase tracking-widest text-[#71866b] mb-5">
+                        Project Information
+                      </h4>
+
+                      <div className="grid grid-cols-2 gap-x-5 gap-y-6">
+                        <div>
+                          <span className="block text-xs text-[#71866b] mb-2">
+                            Sector
+                          </span>
+                          <p className="text-sm font-medium text-[#0b1922]">
+                            {project.sectorDescription}
+                          </p>
+                        </div>
+
+                        <div>
+                          <span className="block text-xs text-[#71866b] mb-2">
+                            Contract Value
+                          </span>
+                          <p className="text-sm font-medium text-[#0b1922]">
+                            {project.value}
+                          </p>
+                        </div>
+
+                        <div>
+                          <span className="block text-xs text-[#71866b] mb-2">
+                            Contract Award
+                          </span>
+                          <p className="text-sm font-medium text-[#0b1922]">
+                            {project.award}
+                          </p>
+                        </div>
+
+                        <div>
+                          <span className="block text-xs text-[#71866b] mb-2">
+                            Scheduled Completion
+                          </span>
+                          <p className="text-sm font-medium text-[#0b1922]">
+                            {project.completion}
+                          </p>
+                        </div>
+
+                        <div>
+                          <span className="block text-xs text-[#71866b] mb-2">
+                            Contract Type
+                          </span>
+                          <p className="text-sm font-medium text-[#0b1922]">
+                            {project.contractType}
+                          </p>
+                        </div>
+
+                        <div>
+                          <span className="block text-xs text-[#71866b] mb-2">
+                            Status
+                          </span>
+                          <p className="text-sm font-medium text-[#0b1922]">
+                            {project.status}
+                          </p>
+                        </div>
+
+                        <div>
+                          <span className="block text-xs text-[#71866b] mb-2">
+                            Principal Contractor
+                          </span>
+                          <p className="text-sm font-medium text-[#0b1922]">
+                            {project.principal}
+                          </p>
+                        </div>
+
+                        <div>
+                          <span className="block text-xs text-[#71866b] mb-2">
+                            Specialist Subcontractor
+                          </span>
+                          <p className="text-sm font-medium text-[#0b1922]">
+                            {project.subcontractor}
+                          </p>
+                        </div>
+                      </div>
                     </div>
 
-                    <div className="border-t border-[#e0e5dc] pt-5">
-                      <span className="text-xs text-[#71866b]">
-                        {project.status}
-                      </span>
+                    {/* PROJECT OVERVIEW */}
+                    <div className="mb-7">
+                      <h4 className="font-serif text-xl mb-4">
+                        Project Overview
+                      </h4>
+
+                      <p className="text-sm text-[#65727a] leading-7">
+                        {project.projectOverview}
+                      </p>
+                    </div>
+
+                    {/* SCOPE OF SERVICES */}
+                    <div className="border-t border-[#e0e5dc] pt-6 mb-7">
+                      <h4 className="font-serif text-xl mb-4">
+                        Scope of Services
+                      </h4>
+
+                      <p className="text-sm text-[#65727a] leading-7 mb-5">
+                        {project.scope}
+                      </p>
+
+                      <ul className="space-y-3">
+                        {project.responsibilities.map((item, detailIndex) => (
+                          <li
+                            key={detailIndex}
+                            className="flex items-start gap-3 text-sm text-[#65727a] leading-relaxed"
+                          >
+                            <span className="text-[#8eae70] font-bold">✓</span>
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {/* PROJECT EXECUTION */}
+                    <div className="border-t border-[#e0e5dc] pt-6 mb-7">
+                      <h4 className="font-serif text-xl mb-4">
+                        Project Execution
+                      </h4>
+
+                      <p className="text-sm text-[#65727a] leading-7">
+                        {project.execution}
+                      </p>
+                    </div>
+
+                    {/* CURRENT PROJECT STAGE */}
+                    <div className="border-t border-[#e0e5dc] pt-6 mb-7">
+                      <h4 className="font-serif text-xl mb-4">
+                        Current Project Stage
+                      </h4>
+
+                      <p className="text-sm text-[#65727a] leading-7">
+                        {project.currentStage}
+                      </p>
+                    </div>
+
+                    {/* PROJECT TAGS */}
+                    <div className="border-t border-[#e0e5dc] pt-6">
+                      <h4 className="text-xs uppercase tracking-widest text-[#71866b] mb-4">
+                        Project Focus
+                      </h4>
+
+                      <div className="flex flex-wrap gap-2">
+                        {project.tags.map((tag) => (
+                          <span
+                            key={tag}
+                            className="text-xs border border-[#dce1d7] px-3 py-2 text-[#65727a]"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </motion.article>

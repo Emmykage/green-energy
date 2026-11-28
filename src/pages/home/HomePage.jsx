@@ -18,6 +18,7 @@ import {
   Mail,
   ChevronRight,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 28 },
@@ -383,30 +384,49 @@ function Process() {
 const projects = [
   {
     sector: "solar",
-    location: "Renewable Generation",
-    title: "Utility-Scale Solar Infrastructure",
-    body: "Technical planning, equipment procurement, electrical infrastructure coordination and project execution support for utility-scale solar developments.",
-    type: "Solar Infrastructure",
-    value: "Project Development",
+    location: "Kedah, Malaysia",
+    title: "Kedah Solar Energy Infrastructure Development",
+    body: "Vtail Energy was appointed by Energy Assets Development, a UK-based EPC contractor, to deliver a major electrical infrastructure subcontract for a utility-scale solar development in Malaysia.",
+    type: "Specialist Electrical Infrastructure Subcontract",
+    value: "USD 28.5 Million",
+    award: "2025",
+    completion: "Scheduled 2027",
+    status: "In Progress",
+    principal: "Energy Assets Development",
+    scope:
+      "Procurement, engineering coordination, installation management and commissioning support for designated electrical systems.",
+    details: [
+      "Solar inverter-transformer stations",
+      "Medium-voltage switchgear and substation equipment",
+      "Associated cabling and electrical protection systems",
+      "Specialist manufacturer and logistics coordination",
+      "Local electrical contractor coordination",
+      "Installation and commissioning support",
+    ],
     image: "photo-1509391366360-2e959784a276",
   },
   {
     sector: "storage",
-    location: "Energy Storage",
-    title: "Battery Energy Storage Systems",
-    body: "Equipment evaluation, procurement coordination, electrical infrastructure assessment and implementation planning for battery storage projects.",
-    type: "Energy Storage",
-    value: "Technical Support",
+    location: "United Kingdom",
+    title: "32 MW Battery Energy Storage Infrastructure",
+    body: "A 32 MW / 64 MWh battery energy storage development designed to support grid flexibility and renewable-energy integration. Vtail Energy's contractual responsibilities covered specialist electrical infrastructure, procurement and installation support.",
+    type: "Specialist Electrical Infrastructure Subcontract",
+    value: "USD 20.3 Million",
+    award: "October 2024",
+    completion: "December 2025",
+    status: "Contract delivery details not provided",
+    principal: "Project developer",
+    scope:
+      "Electrical balance-of-plant infrastructure, equipment procurement, engineering coordination and installation support.",
+    details: [
+      "Ten 4 MVA power-conversion-system transformer packages",
+      "Associated medium-voltage switchgear",
+      "33 kV collection network and protection interfaces",
+      "Power and control cabling and distribution panels",
+      "UK-qualified electrical subcontractor coordination",
+      "Inspection, testing and commissioning documentation",
+    ],
     image: "photo-1473341304170-971dccb5ac1e",
-  },
-  {
-    sector: "grid",
-    location: "Electrical Infrastructure",
-    title: "Grid & Power Infrastructure",
-    body: "Technical support for substations, transformers, switchgear, power distribution systems and renewable-energy grid integration.",
-    type: "Grid Infrastructure",
-    value: "Engineering Support",
-    image: "photo-1497435334941-8c899ee9e8e9",
   },
 ];
 
@@ -414,9 +434,8 @@ function Projects() {
   const [filter, setFilter] = useState("all");
   const filters = [
     ["all", "All Projects"],
-    ["solar", "Solar"],
-    ["storage", "Storage"],
-    ["grid", "Grid"],
+    ["solar", "Solar Energy"],
+    ["storage", "Battery Storage"],
   ];
   const visibleProjects = projects.filter(
     (p) => filter === "all" || p.sector === filter,
@@ -428,13 +447,13 @@ function Projects() {
           <div>
             <SectionLabel>05 / Project experience</SectionLabel>
             <h2 className="serif mt-5 text-4xl md:text-[56px]">
-              Infrastructure <i>project focus.</i>{" "}
+              Selected project <i>portfolio.</i>{" "}
             </h2>
           </div>
           <p className="max-w-[355px] text-sm leading-7 text-[#54676b]">
-            Explore the renewable-energy and electrical infrastructure areas
-            that align with Vtail Energy's contracting, procurement and project
-            development capabilities.
+            Selected renewable-energy and electrical infrastructure contracts
+            involving Vtail Energy's procurement, engineering coordination and
+            specialist subcontracting capabilities.
           </p>
         </Reveal>
         <div className="my-9 flex flex-wrap gap-2" aria-label="Filter projects">
@@ -459,32 +478,47 @@ function Projects() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 12 }}
                 transition={{ duration: 0.3 }}
-                className="min-w-0 bg-white"
+                className="group min-w-0 bg-white"
               >
-                <div
-                  className="relative h-60 bg-cover bg-center"
-                  style={{
-                    backgroundImage: `url(https://images.unsplash.com/${project.image}?auto=format&fit=crop&w=1100&q=80)`,
-                  }}
-                >
-                  <span className="absolute left-4 top-4 bg-[#b6d49b] px-3 py-2 text-[10px] font-extrabold uppercase tracking-wider text-[#132721]">
-                    {project.type}{" "}
-                  </span>
+                {/* Project Image */}
+                <div className="relative h-64 overflow-hidden">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+
+                  <div className="absolute inset-0 bg-[#0b1922]/10" />
                 </div>
-                <div className="p-6">
-                  <small className="text-[11px] font-extrabold uppercase tracking-widest text-[#6f807b]">
-                    {project.location}
-                  </small>
-                  <h3 className="mt-3 text-xl font-semibold leading-tight">
+
+                {/* Project Information */}
+                <div className="p-7">
+                  <div className="mb-4 flex items-center justify-between">
+                    <span className="text-xs font-semibold uppercase tracking-widest text-[#829078]">
+                      {project.category}
+                    </span>
+
+                    <span className="text-xs text-[#6d756c]">
+                      {project.location}
+                    </span>
+                  </div>
+
+                  <h3 className="mb-4 font-serif text-2xl text-[#0b1922]">
                     {project.title}
                   </h3>
-                  <p className="mt-3 text-sm leading-6 text-[#66787c]">
-                    {project.body}
+
+                  <p className="text-sm leading-7 text-[#65716c]">
+                    {project.description}
                   </p>
-                  <div className="mt-5 flex justify-between gap-3 border-t border-[#dfe6e0] pt-4 text-[10px] font-bold text-[#71817d]">
-                    <span>{project.type}</span>
-                    <span>{project.value}</span>
-                  </div>
+
+                  {/* Project Link */}
+                  <Link
+                    to="/projects"
+                    className="mt-6 flex items-center justify-between border-t border-[#dfe3da] pt-5 text-sm font-semibold text-[#0b1922] transition-colors hover:text-[#829c6c]"
+                  >
+                    Explore Project
+                    <ArrowUpRight size={18} />
+                  </Link>
                 </div>
               </motion.article>
             ))}
